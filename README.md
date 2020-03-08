@@ -46,4 +46,7 @@ Wrapped tools are indicated in square brackets e.g. [ ], which should be cited.
 - Iterative assembly / binning?
 
 #### C: Metagenome contextualization of isolate genomes
-- 
+- Competitive recruitment plots
+- Baseline MAGs + genomes of interest from A
+- PERMANOVA tests of trend (from R [vegan package])
+- Heatmaps (from R [pheatmap package] scripts)
