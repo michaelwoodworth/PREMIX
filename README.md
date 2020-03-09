@@ -24,7 +24,7 @@ The files you will need to run this workflow are:
 
 #### A: Isolates 
 - QC
-  - [kneaddata] (wraps [trimmomatic] & [bowtie2] decontamination)
+  - [kneaddata] (wraps [trimmomatic] & [Bowtie2] decontamination)
 - Assembly [SPAdes]
 - Taxonomy
   - [MiGA] - taxonomy assignment, quantitative estimates of novelty, genome/MAG quality
