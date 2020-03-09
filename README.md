@@ -13,7 +13,15 @@ Wrapped tools are indicated in square brackets e.g. [ ], which should be cited.
   - hardware
   - software
   - cluster vs cluster environments
- 
+
+---
+The files you will need to run this workflow are:
+- config.json: modified with paths to your fastq or fastq.gz files
+- genome files: raw fastq (or fastq.gz) files from isolate genomes
+- metagenome files: raw fastq (or fastq.gz) files from metagenomes
+
+---
+
 #### A: Isolates 
 - QC
   - [kneaddata] (wraps [trimmomatic] & [bowtie2] decontamination)

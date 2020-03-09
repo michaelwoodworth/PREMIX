@@ -1,7 +1,8 @@
 # w-c
 
-rule hello_world:
-	input: "world.txt"
-	output: "hello_world.txt"
-	shell:
-		" echo 'Hello' | cat - {input} > {output}"
+configfile:
+	"config.json"
+
+mSAMPLES, = glob_wildcards(config'data'+"{id}_L001_R1_001.fastq.gz")
+gSAMPLES, = glob_wildcards(config'data'+"{id}_L001_R1_001.fastq.gz")
+
