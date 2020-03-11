@@ -1,0 +1,6 @@
+# Edit paths to metagenome and genome files
+
+{
+	"data": "{path}"
+	"genomes": "{path}"
+}
