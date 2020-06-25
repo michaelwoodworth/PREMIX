@@ -2,7 +2,7 @@
 pilot workflow for genomes + metagenomes to estimate temporal dynamics of pathogens and genetic antibiotic resistance and virulence determinants in clinical settings
 
 ### Background
-Apply next-generation sequencing (NGS) analytic tools to genomes from clinical isolates, patient-associated, and environmental-associated metagenomes using snakemake workflows to estimate chnages over time.  Workflow was developed in context of two fecal microbiota transplant clinical trials (PREMIX and FAIR).
+Apply next-generation sequencing (NGS) analytic tools to genomes from clinical isolates, patient-associated, and environmental-associated metagenomes using workflows to estimate chnages over time.  Workflow was developed in context of two fecal microbiota transplant clinical trials (PREMIX and FAIR).
 
 Wrapped tools are indicated in square brackets e.g. [ ], which should be cited.
 
