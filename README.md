@@ -1,24 +1,18 @@
-# workflow-clinical
-pilot workflow for genomes + metagenomes to estimate temporal dynamics of pathogens and genetic antibiotic resistance and virulence determinants in clinical settings
+# Metagenome Analyses
+Summary of generalized approach to analyzing metagenomic data from human samples with or without paired genomic data from cultured isolates.
 
 ### Background
-Apply next-generation sequencing (NGS) analytic tools to genomes from clinical isolates, patient-associated, and environmental-associated metagenomes using workflows to estimate chnages over time.  Workflow was developed in context of two fecal microbiota transplant clinical trials (PREMIX and FAIR).
-
-Wrapped tools are indicated in square brackets e.g. [ ], which should be cited.
+Apply next-generation sequencing (NGS) analytic tools to genomes from clinical isolates, patient-associated, and environmental-associated metagenomes using workflows to estimate changes over time.  Workflow was developed in context of two fecal microbiota transplant clinical trials.
 
 ### Overview
 - specify file paths
   - suggested file naming convention, workarounds
+  - suggested scripts for renaming files obtained from Illumina sequencers
 - dependencies 
   - hardware
   - software
-  - cluster vs cluster environments
-
----
-The files you will need to run this workflow are:
-- config.json: modified with paths to your fastq or fastq.gz files
-- genome files: raw fastq (or fastq.gz) files from isolate genomes
-- metagenome files: raw fastq (or fastq.gz) files from metagenomes
+- environment-specific applications
+  - single (server) node vs cluster environments
 
 ---
 
@@ -30,31 +24,35 @@ The files you will need to run this workflow are:
   - [MiGA] - taxonomy assignment, quantitative estimates of novelty, genome/MAG quality
   - [kraken2] - taxonomy assignment (prokaryote, viral, fungal)
   - [bracken] - relative abundance estimates from kraken2 tables
-  - [metaphlan2] - for benchmarking purposes
+  - [metaphlan3] - for benchmarking purposes
 - Isolate Analyses
   - clonality
     - ANI
     - SNP analyses
 - Gene prediction
   - [Prodigal]
+  - [Prokka]
 - Gene annotation
   - TrEMBL database
   - [AMRFinder] - antibiotic resistance genes, virulence factors
+- Pangenome analyses
+  - Panaroo vs Roary
 
 #### B: Metagenomes
 - QC
   - [kneaddata] (wraps [trimmomatic] & [Bowtie2] decontamination of human reads)
 - Assembly [metaSPAdes]
 - Binning [Maxbin2] or [metabat2]
-  - [Bowtie2] estimates of proportion of reads in bins (maybe this could be done in Roth script)
+  - [Bowtie2] estimates of proportion of reads in bins
 - MAG analyses
-  - Drop into isolate subflow at Taxonomy step
   - [MiGA]
   - [checkM]
-- Iterative assembly / binning?
+  - Optimization/vizualization in Anvio
+- Iterative assembly / binning
 
 #### C: Metagenome contextualization of isolate genomes
 - Competitive recruitment plots
+- Strainsifter / Strainfinder / Phylophlan
 - Baseline MAGs + genomes of interest from A
 - PERMANOVA tests of trend (from R [vegan package])
 - Heatmaps (from R [pheatmap package] scripts)
