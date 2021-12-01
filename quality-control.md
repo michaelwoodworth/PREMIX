@@ -1,7 +1,5 @@
 # Quality Control
 
----
-
 For [human metagenomes](#(Human)-Metagenomes), we trim low-quality reads, remove barcodes/indices, and remove reads 
 that align to a reference human genome in attempt to protect the genomic data for participants of the study. The
 PREMIX metagenome files that are available on NCBI were depleted of human-aligning reads using bowtie2 and are labeled
@@ -12,10 +10,7 @@ conveniently wraps trimmomatic (for read trimming) and BMTagger (for human read 
 
 For [isolate genomes](#Isolate-Genomes), we trim low-quality reads and remove barcodes/indices with trimmomatic alone.
 
----
-
 ## (Human) Metagenomes
 
----
 
 ## Isolate Genomes
