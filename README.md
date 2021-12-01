@@ -1,5 +1,7 @@
 # PREMIX
-Annotated code with expected input and output for analyses of metagenomic data from human samples with or without paired genomic data from cultured isolates. We use the genomic and metagenomic analyses from the paper **Randomized trial: Fecal microbiota transplant promotes reduction of antimicrobial resistance by strain replacement** as a practical example. The primary motivation is to support the reproducibility of, and clarify steps in, the analyses and visualizations from this study.
+The primary motivation for hosting this repository to support the reproducibility of the analyses and visualizations from the PREMIX study.
+
+At each step in analysis, we post the tools, versions, and annotated code used with expected input and output for metagenomic data from human samples with or without paired data from cultured isolates. We use the genomic and metagenomic analyses from the paper **Randomized trial: Fecal microbiota transplant promotes reduction of antimicrobial resistance by strain replacement** as a practical example. 
 
 ### Background
 Apply next-generation sequencing (NGS) analytic tools to genomes from clinical isolates, patient-associated, and environmental-associated metagenomes using workflows to estimate changes over time.  Workflow was developed in context of two fecal microbiota transplant clinical trials.
