@@ -12,5 +12,23 @@ For [isolate genomes](#Isolate-Genomes), we trim low-quality reads and remove ba
 
 ## (Human) Metagenomes
 
+- Input: Illumina paired end read fastq files (e.g. PM01-C1D01_human_removed_R1.fastq, PM01-C1D01_human_removed_R2.fastq)
+- Output: Trimmed, files depleted of human-genome aligning reads (${ID}_paired_1.fastq, ${ID}_paired_2.fastq, ${ID}_unmatched_1.fastq, ${ID}_unmatched_2.fastq), human-aligning reads, and a log file.
+
+- Define tool / step variables
+```console
+db=${path_to_reference_human_genome}
+args="-db $db --output-prefix $ID -t 8 --run-bmtagger --remove-intermediate-output --trimmomatic /storage/home/hcoda1/0/mwoodworth8/.conda/envs/biobakery/share/trimmomatic-0.39-1"
+outdir=${path_for_kneaddata_output}
+```
+
+- Run kneaddata
+```console
+kneaddata -i $R1 -i $R2 -o $outdir $args
+```
+
+- Examine/clean output
+
+**Note:** Kneaddata and trimmomatic can both accept .gz compressed files as input.
 
 ## Isolate Genomes
