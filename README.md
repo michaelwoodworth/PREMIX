@@ -9,7 +9,7 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
 
 ### Overview
 - [Background](background.md)
-- Quality Control 
+- [Quality Control](quality-control.md)
   - (human) stool metagenomes
   - isolate genomes
 - Metagenomic Analyses
