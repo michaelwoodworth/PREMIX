@@ -68,6 +68,8 @@ kraken2 --db $db --output ${outdir}/${ID}.kraken2 $args --report ${outdir}/${ID}
 
 - Examine output
 
+---
+
 **Bracken**
 - Input: kraken2 report
 - Output: bracken report with reestimated reads/percents
