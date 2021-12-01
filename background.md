@@ -1,5 +1,7 @@
 # Background
 
+Fecal microbiota transplantation (FMT) has become an important approach to understand the functions of host-associated microbial communities. In many cases, the taxa in these communities are challenging to culture with routine microbiology methods. Next-generation sequencing approaches have greatly enhanced our ability to identify taxa and their gene-predicted functions associated with responses to treatment with FMT. PREMIX was a randomized, controlled trial of FMT for treatment of multi-drug resistant organism (MDRO) colonization in renal transplant recipients.
+
 This page outlines the naming convention and details of how participants flowed through the PREMIX trial for clarity and analytic context.
 
 ---
