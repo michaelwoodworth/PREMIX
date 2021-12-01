@@ -17,7 +17,6 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Short-read taxonomic classification (kraken2/bracken)
   - Metagenome-assembled genome binning & classification (maxbin2 / metabat2 / DASTool / gtdbtk)
   - Estimates of MAG coverage breadth and depth within metagenomes
-  - Competitive recruitment plots
   - Coverage visualization as line plots and heatmaps in R / ggplot2
 - Genomic Analyses
   - Assembly (SPAdes)
