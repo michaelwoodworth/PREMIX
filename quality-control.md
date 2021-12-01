@@ -17,6 +17,9 @@ For [isolate genomes](#Isolate-Genomes), we trim low-quality reads and remove ba
 
 - Define tool / step variables
 ```console
+indir=${path_to_read_files}
+R1=${indir}/${ID}_human_removed_R1.fastq.gz
+R2=${indir}/${ID}_human_removed_R2.fastq.gz
 db=${path_to_reference_human_genome}
 args="-db $db --output-prefix $ID -t 8 --run-bmtagger --remove-intermediate-output --trimmomatic /storage/home/hcoda1/0/mwoodworth8/.conda/envs/biobakery/share/trimmomatic-0.39-1"
 outdir=${path_for_kneaddata_output}
