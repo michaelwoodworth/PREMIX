@@ -13,7 +13,7 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - [(human) stool metagenomes](quality-control.md#(Human)-Metagenomes)
   - isolate genomes
 - [Metagenomic Analyses](./metagenomic-analyses.md)
-  - [Assembly (metaSPAdes)](./metagenomic-analyses.md#Assembly-(metaSPAdes))
+  - Assembly (metaSPAdes)
   - Short-read taxonomic classification (kraken2/bracken)
   - Metagenome-assembled genome binning & classification (maxbin2 / metabat2 / DASTool / gtdbtk)
 - Genomic Analyses
