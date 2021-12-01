@@ -44,7 +44,7 @@ There are a number of ways to examine the quality of contigs assembled from meta
 
 ## Short-read taxonomic classification (kraken2/bracken)
 
-[kraken2](https://github.com/DerrickWood/kraken2) is a k-mer based short-read taxonomic classification tool. [bracken](https://github.com/jenniferlu717/Bracken) is companion tool that reestimates read at a given taxonomic rank (e.g. species). [Benchmarks of use of kraken2/bracken together](https://doi.org/10.1016/j.cell.2019.07.010) has been shown to perform well. We used **kraken2 v2.1.1** and **bracken v2.6.2**.
+[kraken2](https://github.com/DerrickWood/kraken2) is a k-mer based short-read taxonomic classification tool. [bracken](https://github.com/jenniferlu717/Bracken) is companion tool that reestimates read at a given taxonomic rank (e.g. species). [Benchmarks of use of kraken2/bracken together](https://doi.org/10.1016/j.cell.2019.07.010) has been shown to perform well. **We used kraken2 v2.1.1 and bracken v2.6.2**.
 
 **Kraken2**
 - Input: trimmed paired end fastq files (e.g. PM01-C1D01_trimmed_R1.fastq, 
