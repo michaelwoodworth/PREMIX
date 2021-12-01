@@ -10,7 +10,12 @@ as ID_human_removed_R[12].fastq.
 We used [kneaddata](http://huttenhower.sph.harvard.edu/kneaddata) from the Huttenhower lab for this step since it
 conveniently wraps trimmomatic (for read trimming) and BMTagger (for human read removal). 
 
+For [isolate genomes](#Isolate-Genomes), we trim low-quality reads and remove barcodes/indices with trimmomatic alone.
+
 ---
 
 ## (Human) Metagenomes
+
+---
+
 ## Isolate Genomes
