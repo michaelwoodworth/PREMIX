@@ -13,9 +13,7 @@ Assembly is the most time-consuming step so it can be helpful to get this starte
 
 ## Assembly (metaSPAdes)
 
-[metaSPAdes](https://github.com/ablab/spades) is a commonly-used de novo assembler with an option for assembly of contigs from metagenomic sequencing data.
-The metagenomic assembly mode only accepts a single library, so in our case, where additional sequencing effort for the samples from run 2
-was performed in run 3, we will concatenate the 'left' R1, 'right' R2, and single read files U as follows:
+[metaSPAdes](https://github.com/ablab/spades) is a commonly-used de novo assembler with an option for assembly of contigs from metagenomic sequencing data. We used spades v3.14.1. The metagenomic assembly mode only accepts a single library, so in our case, where additional sequencing effort for the samples from run 2 was performed in run 3, we will concatenate the 'left' R1, 'right' R2, and single read files U as follows:
 
 ```console
 cat ${ID}_library1_R1.fastq ${ID}_library2_R1.fastq >> ${ID}_concatenated_R1.fastq
