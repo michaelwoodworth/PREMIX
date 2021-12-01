@@ -16,8 +16,6 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Assembly (metaSPAdes)
   - Short-read taxonomic classification (kraken2/bracken)
   - Metagenome-assembled genome binning & classification (maxbin2 / metabat2 / DASTool / gtdbtk)
-  - Estimates of MAG coverage breadth and depth within metagenomes
-  - Coverage visualization as line plots and heatmaps in R / ggplot2
 - Genomic Analyses
   - Assembly (SPAdes)
   - Taxonomic classification / evaluation for contamination (kraken2)
@@ -26,3 +24,5 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Comparative analyses: Average nucleotide identity (ANI), Multi-locus sequence typing (MLST), SNP counts, Roary
 - (Meta)Genomic Analyses
   - Estimate breadth/depth of coverage of reference genome in metagenome (inStrain)
+  - Estimates of MAG coverage breadth and depth within metagenomes
+  - Coverage visualization as line plots and heatmaps in R / ggplot2
