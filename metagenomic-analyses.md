@@ -39,7 +39,6 @@ spades.py $args -1 $R1 -2 $R2 -s $U -o ${outdir}/${ID}
 
 ## Short-read taxonomic classification (kraken2/bracken)
 
+[kraken2](https://github.com/DerrickWood/kraken2) is a k-mer based short-read taxonomic classification tool. [bracken](https://github.com/jenniferlu717/Bracken) is companion tool that reestimates read at a given taxonomic rank (e.g. species)
+
 ## Metagenome-assembled genome binning & classification (maxbin2 / metabat2 / DASTool / gtdbtk)
-## Estimates of MAG coverage breadth and depth within metagenomes
-## Competitive recruitment plots
-## Coverage visualization as line plots and heatmaps in R / ggplot2
