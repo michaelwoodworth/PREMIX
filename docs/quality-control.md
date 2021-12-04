@@ -12,6 +12,8 @@ For [isolate genomes](#Isolate-Genomes), we trim low-quality reads and remove ba
 
 ## (Human) Metagenomes
 
+**We used kneaddata v0.7.4**
+
 - Input: Illumina paired end read fastq files (e.g. PM01-C1D01_human_removed_R1.fastq, PM01-C1D01_human_removed_R2.fastq)
 - Output: Trimmed files depleted of human-genome aligning reads (${ID}_paired_1.fastq, ${ID}_paired_2.fastq, ${ID}_unmatched_1.fastq, ${ID}_unmatched_2.fastq), human-aligning reads, and a log file.
 
