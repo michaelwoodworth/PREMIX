@@ -44,5 +44,10 @@ indir=${path_to_spades_assembled scaffolds}
 outdir=${path_to_prodigal_output}
   # scaffold=${indir}/${ID}_scaffolds.fasta # if renamed with rename_scaffolds.sh script above
   # scaffold=$(indir}/${ID}/scaffolds.fasta # if SPAdes scaffolds used in original output directories
-args=args='--isolate -t 20 -m 80'
+args='-p single'       # for single genome gene prediction
+```
+
+- Run Prodigal
+```console
+prodigal -a ${outdir}/${ID}.faa -d ${outdir}/${ID}.fna -f gff -i ${scaffold} -o ${outdir}/${ID}.gff $args
 ```
