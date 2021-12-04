@@ -16,7 +16,7 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Assembly (metaSPAdes)
   - Short-read taxonomic classification (kraken2/bracken)
   - Metagenome-assembled genome binning & classification (maxbin2 / metabat2 / DASTool / gtdbtk)
-- Genomic Analyses
+- [Genomic Analyses](docs/genomic-analyses.md)
   - Assembly (SPAdes)
   - Taxonomic classification / evaluation for contamination (kraken2)
   - Gene prediction (Prodigal)
