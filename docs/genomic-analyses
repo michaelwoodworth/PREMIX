@@ -1,0 +1,13 @@
+# Genomic Analyses
+
+After [quality control](quality-control.md), we proceed to assembly for assembly-based analyses, gene prediction, annotation, and comparative genomic analyses.
+
+## Overview
+- Assembly (SPAdes)
+- Gene prediction (Prodigal)
+- Annotation (prokka | MicrobeAnnotator)
+- Antimicrobial resistance genes analyses (AMRFinder)
+- Clustered gene analyses (Roary)
+- Average nucleotide identity (FastANI)
+
+## Assembly (SPAdes)
