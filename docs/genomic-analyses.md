@@ -31,3 +31,17 @@ args=args='--isolate -t 20 -m 80'
 ```console
 spades.py $args -1 $R1 -2 $R2 -s $U -o ${outdir}/${ID}
 ```
+
+- Rename scaffolds (optional)
+Scaffolds can be renamed and copied/linked to a new directory using the [rename_scaffolds.sh](../assets/rename_scaffolds.sh) bash script.
+
+## Gene prediction (Prodigal)
+[Prodigal](https://github.com/hyattpd/Prodigal) is a tool to predict protein-coding genes from prokaryotic genomes. We typically run prodigal and keep the amino acid, nucleic acid, and gff files for downstream use. **We used Prodigal v2.6.3.**
+
+- Define tool / step variables
+```console
+indir=${path_to_spades_assembled scaffolds}
+outdir=${path_to_prodigal_output}
+scaffold=${indir}/${ID}_scaffolds.fasta
+args=args='--isolate -t 20 -m 80'
+```
