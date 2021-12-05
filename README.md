@@ -19,8 +19,10 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
 - [Genomic Analyses](docs/genomic-analyses.md)
   - Assembly (SPAdes)
   - Gene prediction (Prodigal)
-  - Gene annotation (Prokka / MicrobeAnnotator / AMRFinder)
-  - Comparative analyses: Average nucleotide identity (ANI), Multi-locus sequence typing (MLST), SNP counts, Roary
+  - Antimicrobial resistance genes analyses (AMRFinder)
+  - Annotation (prokka | MicrobeAnnotator)
+  - Clustered gene analyses (Roary)
+  - Average nucleotide identity (FastANI)
 - (Meta)Genomic Analyses
   - Estimate breadth/depth of coverage of reference genome in metagenome (inStrain)
   - Estimates of MAG coverage breadth and depth within metagenomes
