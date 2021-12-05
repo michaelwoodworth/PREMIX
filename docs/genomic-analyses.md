@@ -5,8 +5,8 @@ After [quality control](quality-control.md), we proceed to assembly for assembly
 ## Overview
 - Assembly (SPAdes)
 - Gene prediction (Prodigal)
-- Annotation (prokka | MicrobeAnnotator)
 - Antimicrobial resistance genes analyses (AMRFinder)
+- Annotation (prokka | MicrobeAnnotator)
 - Clustered gene analyses (Roary)
 - Average nucleotide identity (FastANI)
 
@@ -50,4 +50,19 @@ args='-p single'       # for single genome gene prediction
 - Run Prodigal
 ```console
 prodigal -a ${outdir}/${ID}.faa -d ${outdir}/${ID}.fna -f gff -i ${scaffold} -o ${outdir}/${ID}.gff $args
+```
+
+## Antimicrobial resistance genes analyses (AMRFinder)
+[AMRFinderPlus](https://github.com/ncbi/amr) is an NCBI developed/maintained tool that has a robust method of detecting antimicrobial resistance (AMR) genes with blast queries and hidden markov model searches. We have also [written some additional filtering and summarizing scripts](https://github.com/michaelwoodworth/AMRFinder_scripts) that may streamline some analyses with the output of AMRFinder.
+
+- Define tool / step variables
+```console
+indir=${path_to_prodigal_output}
+outdir=${path_to_amrfinder_output}
+protein=${indir}/${ID}.faa
+```
+
+- Run AMRFinder
+```console
+amrfinder -p ${protein} --plus -o ${outdir}/${ID}_amrfinder.tsv
 ```
