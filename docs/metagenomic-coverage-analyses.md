@@ -38,7 +38,7 @@ Output: renamed fastq/fasta overwritten in place
 Protein-coding genes are predicted with [Prodigal](https://github.com/hyattpd/Prodigal). **We used Prodigal V2.6.3.**
 
 - Input: SPAdes assembled scaffold fasta file with renamed reads
-- Output: directory containing scaffolds.fasta, contigs.fasta, leogfiles, and assembly graphs/statistics.
+- Output: directory containing scaffolds.fasta, contigs.fasta, logfiles, and assembly graphs/statistics.
 
 - Define tool / step variables
 ```console
