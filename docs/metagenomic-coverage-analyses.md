@@ -11,7 +11,6 @@ Other tools to resolve the coverage of genomes of closely related strains and th
 - Assemble contigs (see steps in [metagenomic analyses](metagenomic-analyses.md))
 - Predict proteins (Prodigal)
 - Annotate genes (with AMRFinder Plus as motivating example)
-- Build magicblast database with assembled scaffolds (Magicblast)
 - Map renamed metagenome reads vs renamed scaffolds (Magicblast)
 - Run coverage magic python scripts to get coverage (TAD80 & RPKM) of scaffolds, genes (python)
 - Run python scripts to validate genes from AMRFinder & coverage magic and pull their coverage (python)
@@ -34,8 +33,6 @@ Output: renamed fastq/fasta overwritten in place
 
 ```
 
----
-
 ## Predict proteins
 
 Protein-coding genes are predicted with [Prodigal](https://github.com/hyattpd/Prodigal). **We used Prodigal V2.6.3.**
@@ -54,3 +51,12 @@ scaffold=${indir}/${ID}_scaffolds.fasta
 ```console
 prodigal -a ${outdir}/${ID}.faa -d ${outdir}/${ID}.fna -f gff -i ${scaffold} -o ${outdir}/${ID}.gff $args
 ```
+
+## Annotate genes
+
+
+## Map metagenome reads
+
+
+## Calculate coverage for genes & scaffolds
+
