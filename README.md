@@ -3,7 +3,7 @@ The primary motivation for this repository to support the reproducibility of the
 
 At each step in analysis, we post the tools, versions, and annotated code used with (in most cases) the expected input and output for metagenomic data from human samples with or without paired data from cultured isolates. We use the genomic and metagenomic analyses from the paper **Randomized trial: Fecal microbiota transplant promotes reduction of antimicrobial resistance by strain replacement** as a practical example. 
 
-Data for the analyses in the PREMIX paper that will be used for this repository are available through the NCBI Bioproject (accession PRJNA728680), which will be made available at time of publication.
+Data for the analyses in the PREMIX paper that will be used for this repository are available through the NCBI Bioproject (accession PRJNA728680).
 
 ---
 
