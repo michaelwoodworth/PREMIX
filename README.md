@@ -29,3 +29,7 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Annotate genes (with AMRFinder Plus as motivating example)
   - Map metagenome reads vs reference (Bowtie2)
   - Filter reads and estimate coverage and diversity statistics (inStrain)
+- [Vizualization](docs/vizualization.md)
+  - Line plots
+  - Violin plots
+  - Heatmaps
