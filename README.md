@@ -23,7 +23,8 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Annotation (prokka | MicrobeAnnotator)
   - Clustered gene analyses (Roary)
   - Average nucleotide identity (FastANI)
-- (Meta)Genomic Analyses
+- [Integrated Genomic and Metagenomic Analyses](docs/integrated-analyses.md)
   - Estimate breadth/depth of coverage of reference genome in metagenome (inStrain)
-  - Estimates of MAG coverage breadth and depth within metagenomes
+  - Estimates of MAG coverage breadth and depth within metagenomes (inStrain)
+  - Estimates of gene coverage within metagenomes (inStrain)
   - Coverage visualization as line plots and heatmaps in R / ggplot2
