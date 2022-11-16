@@ -12,7 +12,7 @@ We used [inStrain](https://instrain.readthedocs.io/en/latest/) because it is ver
 - Annotate genes (with AMRFinder Plus as motivating example)
 - Calculate coverage statistics (inStrain)
 - Calculate average genome size (MicrobeCensus)
-- Analyze & Visualize (R)
+- Parse and link output for gene RPKM estimates
 
 ## Assemble contigs
 
