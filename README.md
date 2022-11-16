@@ -27,4 +27,4 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
   - Estimate breadth/depth of coverage of reference genome in metagenome (inStrain)
   - Estimates of MAG coverage breadth and depth within metagenomes (inStrain)
   - Estimates of gene coverage within metagenomes (inStrain)
-  - Coverage visualization as line plots and heatmaps in R / ggplot2
+  - Coverage visualization in R / ggplot2
