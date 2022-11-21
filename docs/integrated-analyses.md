@@ -39,7 +39,7 @@ prodigal -a ${outdir}/${ID}.faa -d ${outdir}/${ID}.fna -f gff -i ${scaffold} -o 
 
 ## Annotate genes
 
-Predicted proteins can be annotated (using tools like [prokka](https://github.com/tseemann/prokka) or [MicrobeAnnotator](https://github.com/cruizperez/MicrobeAnnotator)). Our group uses [AMRFinder Plus](https://github.com/ncbi/amr/wiki/Installing-AMRFinder) to annotate antimicrobial resistance and virulence genes, which we will use as a motivating example.
+Predicted proteins can be annotated (using tools like [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [bakta](https://github.com/oschwengers/bakta), [prokka](https://github.com/tseemann/prokka) or [MicrobeAnnotator](https://github.com/cruizperez/MicrobeAnnotator)). Our group uses [AMRFinder Plus](https://github.com/ncbi/amr/wiki/Installing-AMRFinder) to annotate antimicrobial resistance and virulence genes, which we will use as a motivating example.
 
 [AMRFinderPlus](https://github.com/ncbi/amr) is an NCBI developed/maintained tool that has a robust method of detecting antimicrobial resistance (AMR) genes with blast queries and hidden markov model searches. We have also [written some additional filtering and summarizing scripts](https://github.com/michaelwoodworth/AMRFinder_scripts) that may streamline some analyses with the output of AMRFinder. **We used AMRFinderPlus v3.10.18.**
 
