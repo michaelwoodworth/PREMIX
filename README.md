@@ -11,7 +11,7 @@ Data for the analyses in the PREMIX paper that will be used for this repository 
 - [Background](docs/background.md)
 - [Quality Control](docs/quality-control.md)
   - [(human) stool metagenomes](docs/quality-control.md#(Human)-Metagenomes)
-  - isolate genomes
+  - [isolate genomes](docs/quality-control.md#isolate-genomes)
 - [Metagenomic Analyses](docs/metagenomic-analyses.md)
   - Assembly (metaSPAdes)
   - Short-read taxonomic classification (kraken2/bracken)
