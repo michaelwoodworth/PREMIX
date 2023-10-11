@@ -163,6 +163,22 @@ tte <- read_csv(paste0(path,"/",date_file),
 
 ## Heatmaps
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(readr)
+library(vegan)
+library(tidyverse)
+library(viridis)
+library(ggpubr)
+library(ggsci)
+library(ggtext)
+library(glue)
+library(MEP)
+library(wesanderson)
+library(pheatmap)
+library(stringr)
+```
 
 ```{r prep annotation dataframes}
 
@@ -198,13 +214,7 @@ meta_colors <- list(
 ```
 
 ```{r define heater function}
-
-# library(ggtext)
-library(glue)
-
-##########################################################################
 # define heatmap function
-
 	
 heater <- function(df, legend=TRUE, 
                    matrix_type="breadth",
