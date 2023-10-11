@@ -20,6 +20,27 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 
 We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html) and the R package Survival.
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readr)
+library(survival)
+library(survminer)
+library(cowplot)
+
+path      <-"/PREMIX/Analyses/Data"
+date_file <- "TimetoEvent.csv"
+
+tte <- read_csv(paste0(path,"/",date_file),
+                col_types = cols(First_D01_Date = col_date(format = "%m/%d/%y"),
+                                 Last_FollowUp = col_date(format = "%m/%d/%y"),
+                                 Last_Screen = col_date(format = "%m/%d/%y"),
+                                 MDRO_Negative = col_date(format = "%m/%d/%y"),
+                                 Infection_Date = col_date(format = "%m/%d/%y"),
+                                 MDRO_Infection_Date = col_date(format = "%m/%d/%y")))
+```
+
 ```{r format dates}
 
 # Calculate follow up time / time to event
@@ -39,20 +60,6 @@ We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabo
                                units = "days")))
                   ),
 
-    # - Time to first bacterial infection post first D01
-      tt_Infection=
-        case_when(Infection_status == 1 ~
-                    (as.numeric(
-                      difftime(Infection_Date,
-                               First_D01_Date,
-                               units = "days"))),
-                  Infection_status == 0 ~
-                    (as.numeric(
-                      difftime(Last_FollowUp,
-                               First_D01_Date,
-                               units = "days")))
-                  ),
-    
     # - Recode for follow up time <= 180 days
       tt_MDRO_infection_lt180 =
         case_when(MDRO_infection_status_180 == 0 &
@@ -94,21 +101,49 @@ We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabo
                   Group == "FMT"     ~ "FMT",
                   Group == "Observation" ~ "FMT"
                   ),
-    
-    # - Time to first MDR bacterial infection post first D01
-      tt_MDRO_infection=
-        case_when(MDRO_infection_status == 1 ~
-                    (as.numeric(
-                      difftime(MDRO_Infection_Date,
-                               First_D01_Date,
-                               units = "days"))),
-                  MDRO_infection_status == 0 ~
-                    (as.numeric(
-                      difftime(Last_FollowUp,
-                               First_D01_Date,
-                               units = "days")))
-                  )
     )
+```
+
+```{r survival function analyses}
+
+  # - Create / inspect survival objects
+
+   MDRO_status_surv <- Surv(tte$tt_MDRO_negative, tte$MDRO_negative_status)
+   MDRO_infx_surv   <- Surv(tte$tt_Infection, tte$Infection_status)
+
+   
+  # Estimate curves with Kaplan-Meier method
+   
+   MDRO_status_curve <- survfit(Surv(tt_MDRO_negative, MDRO_negative_status) ~ 1,
+                                data = tte)
+
+  # - Time to MDRO decolonization post first D01  [stratify by randomization]
+    MDRO_decol_plot <- ggsurvplot(
+     fit = survfit(Surv(tt_MDRO_negative, 
+                        MDRO_negative_status) ~ Group,
+                                data = tte),
+     xlab = "Days",
+     ylab = "Overall decolonization probability",
+     palette = "uchicago"
+    )
+
+  # - Time to MDR bacterial infection post first D01  [stratify by randomization]
+          # censored at 180 days
+    MDRO_infection180_plot <- ggsurvplot(
+     fit = survfit(Surv(tt_MDRO_infection_lt180, 
+                        # MDRO_infection_status) ~ Randomization,
+                        MDRO_infection_status) ~ Group,
+                                data = tte),
+     xlab = "Days",
+     ylab = "Free from MDRO infection",
+     title = "Time to MDRO infection by group",
+     palette = "uchicago"
+   )        
+
+  # View plots
+    MDRO_decol_plot
+    MDRO_infection180_plot
+
 ```
 
 ## Heatmaps
