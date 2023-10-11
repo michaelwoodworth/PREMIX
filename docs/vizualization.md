@@ -4,7 +4,6 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 
 ## Overview
 - Line plots
-- Violin plots
 - Time to event plots
 - Heatmaps
 
@@ -145,10 +144,6 @@ label_colors    <- scale_color_manual(
     wrap_plots(patchlist[observation_ids])
     
 ```
-
-## Violin plots
-
-
 
 ## Time to event plots
 
