@@ -18,7 +18,7 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 
 ## Time to event plots
 
-We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html) and the R package Survival.
+We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html) and the R packages survival and survminer.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -146,4 +146,135 @@ tte <- read_csv(paste0(path,"/",date_file),
 
 ```
 
+```{r compare survival between two groups}
+
+  # Time to MDRO decolonization
+  survdiff(Surv(tt_MDRO_negative, 
+                MDRO_negative_status) ~ Randomization, 
+           data = tte)
+
+  # Time to MDRO infection
+  survdiff(Surv(tt_MDRO_infection,
+                MDRO_infection_status) ~ Group, 
+           data = tte)  
+  
+```
+
+
 ## Heatmaps
+
+
+```{r prep annotation dataframes}
+
+# prep column annotation dataframe
+
+c_annotation <- data.frame(md$Exposure,
+                           as.factor(md$`MDRO Status`))
+    rownames(c_annotation) <- md$Sample
+    colnames(c_annotation) <- c("Exposure",
+                                "MDRO Status")
+    
+# prep row annotation dataframe
+r_annotation <- data.frame(quality$Completeness,
+                           quality$Contamination,
+                           quality$Quality,
+                           quality$fastani_ani)
+    rownames(r_annotation) <- species_list
+    colnames(r_annotation) <- c("MAG Completeness",
+                                "MAG Contamination",
+                                "MAG Quality Score",
+                                "ANI with Reference")
+    
+# define annotation colors
+meta_colors <- list(
+          Exposure=c(Donor="#B6854D",
+                 FMT="#79402E",
+                 None="#D9D0D3",
+                 Prep="#9986A5"),
+          `MDRO Status`=c(Negative="#46ACC8",
+                  Positive="#E58601")
+          )
+
+```
+
+```{r define heater function}
+
+# library(ggtext)
+library(glue)
+
+##########################################################################
+# define heatmap function
+
+	
+heater <- function(df, legend=TRUE, 
+                   matrix_type="breadth",
+                   ID=NULL) {
+  
+            # plotting parameters for relative abundance matrices
+            if(legend==TRUE & matrix_type=="rela"){
+              print(
+               pheatmap(log(df + 1),          # log transform
+               annotation_col=c_annotation,
+               # annotation_col=glue("can_{ID}"),
+               annotation_row=r_annotation,
+               annotation_colors=meta_colors,
+               cluster_cols = FALSE,
+               # cluster_rows = FALSE,
+               color=viridis(5),
+               # color=magma(5),
+               angle_col=45,
+               # labels_row = as.expression(newnames),
+               scale="row"
+               ))
+              }
+            if(legend==FALSE & matrix_type=="rela"){
+              print(
+               pheatmap(log(df + 1),          # log transform
+               annotation_col=c_annotation,
+               # annotation_col=glue("can_{ID}"),
+               # annotation_row=r_annotation,
+               annotation_colors=meta_colors,
+               cluster_cols = FALSE,
+               # cluster_rows = FALSE,
+               color=viridis(5),
+               # color=magma(5),
+               angle_col=45,
+               # labels_row = as.expression(newnames),
+               scale="row",
+               annotation_legend=FALSE,
+               # legend=FALSE
+               ))
+            }
+              
+            # separate plotting parameters for breadth matrices
+            if(legend==TRUE & matrix_type=="breadth"){
+              print(
+               pheatmap(df,           # no log transform
+               annotation_col=c_annotation,
+               # annotation_col=glue("can_{ID}"),
+               annotation_row=r_annotation,
+               annotation_colors=meta_colors,
+               cluster_cols = FALSE,
+               color=viridis(5),
+               angle_col=45,
+               # labels_row = as.expression(newnames)
+               ))
+            }
+            if(legend==FALSE & matrix_type=="breadth"){
+              print(
+               pheatmap(df,           # no log transform
+               annotation_col=c_annotation,
+               # annotation_col=glue("can_{ID}"),
+               annotation_row=r_annotation,
+               annotation_colors=meta_colors,
+               cluster_cols = FALSE,
+               color=viridis(5),
+               angle_col=45,
+               annotation_legend=FALSE,
+               # labels_row = as.expression(newnames)
+               # legend=FALSE
+               ))                  
+            }
+        }
+
+```
