@@ -10,7 +10,141 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 
 ## Line plots
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 
+library(tidyverse)
+library(ggtext)
+library(glue)
+library(readr)
+library(lubridate)
+library(patchwork)
+```
+
+```{r paths, include=FALSE}
+######## set paths
+  # observation cycle inStrain profiles
+	data_path <- "/PREMIX/Analyses/Data/"
+	data_file <- "observation_data.txt"
+
+######## import data
+  # strain summary
+  ss <- read_tsv(paste0(data_path, "/", data_file))
+  ss$sample <- gsub("-", ".", ss$sample)
+
+
+  days_file <- read_csv(paste0(data_path,"/","visit_day_counts.csv") %>% 
+    select(-c(ICF:lastv_delta_C1D01))
+  
+  colnames(days_file) <- gsub("_rel_FMT1", "", colnames(days_file))
+  
+  days_file <- days_file %>%     
+    pivot_longer(cols = -ID,
+                 names_to = "Visit",
+                 values_to = "Days from FMT1")
+  
+  # metadata
+  md <- read_csv(paste0(data_path,"/",stable_metadata.csv")
+
+  # merge dates and metadata
+  md <- left_join(md, days_file, by=c("ID", "Visit"))
+  
+  
+########## join data to plot
+  ss_sub <- ss %>% select(sample:breadth)
+  
+  ss_md <- left_join(ss_sub,
+                     md,
+                     by=c("sample"="Sample"))
+
+```
+
+```{r plot}
+
+observation_ids <- c("PM03",
+                     "PM05",
+                     "PM07",
+                     "PM08",
+                     "PM12")
+
+label_colors    <- scale_color_manual(
+                              breaks = c("PM03-K4",
+                                         "PM05-E1",
+                                         "PM12-E1",
+                                         "PM08-E1",
+                                         "PM07-E2",
+                                         "PM07-E3"
+                                         ),
+                              values = c(
+                                         "orange",
+                                         "orange",
+                                         "orange",
+                                         "orange",
+                                         "darkgrey",
+                                         "orange")
+                            )
+
+
+# loop plots
+  
+    plotlist <- vector("list", length = 2*length(observation_ids))
+    patchlist <- vector("list", length = length(observation_ids))
+    j = 1
+
+    for(i in observation_ids){
+      
+      print(glue("  - starting {i}"))
+      
+      breadth_plot <- ss_md %>% 
+                        filter(ID == i) %>% 
+                        ggplot(aes( x = `Days from FMT1`,
+                                    y = breadth,
+                                    # color = genome)) +
+                                    color = label)) +
+                        geom_line(size=1) +
+                        geom_point(size=3) +
+                        # geom_line() +
+                        # geom_point() +
+                        geom_hline(yintercept = 0.5,
+                                   linetype = "dashed",
+                                   color = "red") +
+                        ylim(0, 1) +
+                        labs(title = glue("{i}")) +
+                        label_colors +
+                        theme_classic() +
+                      guides(color=guide_legend(ncol=1))
+      
+      plotlist[[j]] <- breadth_plot
+      
+      cov_plot <- ss_md %>% 
+                      filter(ID == i) %>% 
+                      ggplot(aes( x = `Days from FMT1`,
+                                  y = coverage,
+                                    # color = genome)) +
+                                    color = label)) +
+                        geom_line(size=1) +
+                        geom_point(size=3) +
+                        # geom_line() +
+                        # geom_point() +
+                      ylim(0, 45) +
+                      labs(y = "depth") +
+                      label_colors +
+                      # theme(legend.position = "none") +
+                      theme_classic() +
+                      guides(color=guide_legend(ncol=1))
+      
+      patchlist[[i]] <- breadth_plot / cov_plot  + 
+            plot_layout(guides = "collect") & theme(legend.position = "bottom",
+                                                    legend.title = element_blank())
+
+      j <- j+1
+
+    }
+
+
+    wrap_plots(patchlist[observation_ids])
+    
+```
 
 ## Violin plots
 
