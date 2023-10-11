@@ -5,6 +5,7 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 ## Overview
 - Line plots
 - Violin plots
+- Time to event plots
 - Heatmaps
 
 ## Line plots
@@ -13,6 +14,16 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 
 ## Violin plots
 
+
+
+## Time to event plots
+
+We drew heavily on the [excellent survival analysis tutorial written by Emily Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html) to produce Kaplan-Meier style plots of time to negative MDRO stool culture and recurrent MDRO infection.
+
+`r
+
+
+`
 
 
 ## Heatmaps
