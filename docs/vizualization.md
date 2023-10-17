@@ -7,6 +7,8 @@ Vizualizations in the PREMIX paper were produced in R using the RStudio interfac
 - Time to event plots
 - Heatmaps
 
+In the visualization page for my [practical metagenomics](https://github.com/michaelwoodworth/practicalmetagenomics/blob/main/pages/23.03.24.md) repository, we include R code for generating plotting functions, manual color schemes, and looping over IDs to create multiple plots from a data set.
+
 ## Line plots
 
 ```{r setup, include=FALSE}
