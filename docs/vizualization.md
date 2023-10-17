@@ -12,8 +12,6 @@ In the visualization page for my [practical metagenomics](https://github.com/mic
 ## Line plots
 
 ```r
-knitr::opts_chunk$set(echo = TRUE)
-
 library(tidyverse)
 library(ggtext)
 library(glue)
@@ -61,7 +59,6 @@ library(patchwork)
 ```
 
 ```r
-
 observation_ids <- c("PM03",
                      "PM05",
                      "PM07",
@@ -152,8 +149,6 @@ label_colors    <- scale_color_manual(
 We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html) and the R packages survival and survminer.
 
 ```r
-knitr::opts_chunk$set(echo = TRUE)
-
 library(tidyverse)
 library(readr)
 library(survival)
@@ -295,8 +290,6 @@ tte <- read_csv(paste0(path,"/",date_file),
 ## Heatmaps
 
 ```r
-knitr::opts_chunk$set(echo = TRUE)
-
 library(readr)
 library(vegan)
 library(tidyverse)
