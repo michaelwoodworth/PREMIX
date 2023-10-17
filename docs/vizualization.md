@@ -11,7 +11,7 @@ In the visualization page for my [practical metagenomics](https://github.com/mic
 
 ## Line plots
 
-```{r setup, include=FALSE}
+```r
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
@@ -22,7 +22,7 @@ library(lubridate)
 library(patchwork)
 ```
 
-```{r paths, include=FALSE}
+```r
 ######## set paths
   # observation cycle inStrain profiles
 	data_path <- "/PREMIX/Analyses/Data/"
@@ -60,7 +60,7 @@ library(patchwork)
 
 ```
 
-```{r plot}
+```r
 
 observation_ids <- c("PM03",
                      "PM05",
@@ -151,7 +151,7 @@ label_colors    <- scale_color_manual(
 
 We drew heavily on the [excellent tutorial by Emily Zabor](https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html) and the R packages survival and survminer.
 
-```{r setup, include=FALSE}
+```r
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
@@ -172,7 +172,7 @@ tte <- read_csv(paste0(path,"/",date_file),
                                  MDRO_Infection_Date = col_date(format = "%m/%d/%y")))
 ```
 
-```{r format dates}
+```r
 
 # Calculate follow up time / time to event
     tte <- tte %>% mutate(
@@ -235,7 +235,7 @@ tte <- read_csv(paste0(path,"/",date_file),
     )
 ```
 
-```{r survival function analyses}
+```r
 
   # - Create / inspect survival objects
 
@@ -277,7 +277,7 @@ tte <- read_csv(paste0(path,"/",date_file),
 
 ```
 
-```{r compare survival between two groups}
+```r
 
   # Time to MDRO decolonization
   survdiff(Surv(tt_MDRO_negative, 
@@ -294,7 +294,7 @@ tte <- read_csv(paste0(path,"/",date_file),
 
 ## Heatmaps
 
-```{r setup, include=FALSE}
+```r
 knitr::opts_chunk$set(echo = TRUE)
 
 library(readr)
@@ -311,7 +311,7 @@ library(pheatmap)
 library(stringr)
 ```
 
-```{r prep annotation dataframes}
+```r
 
 # prep column annotation dataframe
 
@@ -344,7 +344,7 @@ meta_colors <- list(
 
 ```
 
-```{r define heater function}
+```r
 # define heatmap function
 	
 heater <- function(df, legend=TRUE, 
